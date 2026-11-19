@@ -561,3 +561,71 @@ main { padding: 14px 22px 28px; }
     padding-right: 0;
   }
 }
+
+/* Responsive desktop layout: use available width and prevent compound labels
+   from covering their inputs when the window is resized. */
+main {
+  width: 100%;
+  max-width: 1440px;
+  padding-left: clamp(18px, 2.2vw, 32px);
+  padding-right: clamp(18px, 2.2vw, 32px);
+}
+
+.settings-wrap {
+  width: 100%;
+  max-width: 1320px;
+}
+
+.login-fields {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.login-fields label {
+  grid-template-columns: max-content minmax(0, 1fr);
+  min-width: 0;
+}
+
+.login-fields label > span {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.login-fields .secret-input,
+.login-fields input {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .login-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .login-fields label:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  main {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .login-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .login-fields label:last-child {
+    grid-column: auto;
+  }
+
+  .settings-section > label,
+  .login-fields label {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .settings .cols {
+    grid-template-columns: 1fr;
+  }
+}
