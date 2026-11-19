@@ -315,3 +315,249 @@ main { padding: 14px 22px 28px; }
 .confirm-danger:hover { background: #8f3039; border-color: #8f3039; }
 @media(max-width:800px){.subscription-history-row{grid-template-columns:minmax(110px,1fr) auto auto}.subscription-history-formats{grid-column:1 / span 2}.subscription-history-host{grid-column:1 / span 2}.subscription-history-row strong{text-align:right}}
 @media(max-width:520px){.confirm-dialog{grid-template-columns:1fr}.confirm-actions{margin-top:11px}.compose-foot{flex-wrap:wrap}.compose-foot .safe-check{margin-right:0!important}.settings-section > label,.login-fields label{grid-template-columns:1fr}}
+
+/* Brand mark and compact desktop dialogs. */
+.logo i {
+  font-size: 0;
+  background: url('/linkforge-icon.png') center / cover no-repeat;
+  box-shadow: 0 2px 8px rgb(28 28 31 / 14%);
+}
+
+.confirm-backdrop {
+  background: rgb(28 29 35 / 36%);
+  backdrop-filter: blur(3px);
+}
+
+.confirm-dialog {
+  width: min(430px, calc(100vw - 40px));
+  grid-template-columns: 1fr;
+  gap: 17px;
+  padding: 20px 20px 16px;
+  border-radius: 14px;
+  box-shadow: 0 22px 58px rgb(28 28 31 / 22%);
+}
+
+.confirm-dialog-head {
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.confirm-mark {
+  flex-basis: 34px;
+  width: 34px;
+  height: 34px;
+  font-size: 14px;
+}
+
+.confirm-dialog h2 {
+  margin: 1px 0 6px;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.confirm-dialog p {
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.confirm-actions {
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+  gap: 8px;
+}
+
+.confirm-actions button {
+  min-height: 32px;
+  padding: 5px 14px;
+  border-radius: 7px;
+  font-size: 11px;
+}
+
+.subscription-history {
+  overflow: hidden;
+  padding: 0;
+}
+
+.subscription-history-bar {
+  min-height: 48px;
+  padding: 10px 12px;
+}
+
+.subscription-history-bar details {
+  overflow: hidden;
+}
+
+.subscription-history details > summary {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.subscription-history-list {
+  margin: 0;
+  padding: 0 12px 12px;
+}
+
+.subscription-history-row {
+  background: var(--surface-subtle);
+  border-color: #e6e4df;
+}
+
+@media(max-width:520px){
+  .confirm-dialog { padding: 17px 16px 14px; }
+  .confirm-actions button { flex: 1; }
+}
+
+/* Keep confirmation dialogs compact while giving the message and actions
+   distinct, predictable space. */
+.confirm-dialog {
+  width: min(520px, calc(100vw - 40px));
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 16px 18px;
+  border-radius: 12px;
+}
+
+.confirm-dialog-head {
+  align-items: center;
+  gap: 11px;
+}
+
+.confirm-mark {
+  flex-basis: 30px;
+  width: 30px;
+  height: 30px;
+  font-size: 13px;
+}
+
+.confirm-dialog h2 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.confirm-dialog p {
+  max-width: 330px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.confirm-actions {
+  padding: 0;
+  border: 0;
+  gap: 7px;
+}
+
+.confirm-actions button {
+  min-height: 30px;
+  padding: 5px 12px;
+}
+
+.subscription-history-row {
+  grid-template-columns: 132px 42px 125px minmax(150px, max-content) minmax(100px, 1fr) 40px;
+  gap: 10px;
+  min-height: 34px;
+  padding: 5px 9px;
+  border-radius: 7px;
+}
+
+.subscription-history-count {
+  font-size: 10px;
+}
+
+.subscription-history-formats,
+.subscription-history-host {
+  min-width: 0;
+}
+
+.subscription-history-row strong {
+  justify-self: end;
+  width: max-content;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--success-soft);
+  font-size: 10px;
+}
+
+.subscription-history-row strong.failed {
+  background: var(--danger-soft);
+}
+
+@media(max-width: 700px) {
+  .subscription-history-row {
+    grid-template-columns: minmax(120px, 1fr) auto auto;
+    gap: 6px 10px;
+  }
+
+  .subscription-history-formats,
+  .subscription-history-host {
+    grid-column: auto;
+  }
+
+  .subscription-history-row strong {
+    justify-self: end;
+  }
+}
+
+@media(max-width: 560px) {
+  .confirm-dialog {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .confirm-actions {
+    justify-content: flex-end;
+  }
+
+  .confirm-actions button {
+    flex: 1;
+  }
+}
+
+/* Keep the history title and destructive action in the section header. */
+.subscription-history-bar {
+  display: block;
+  width: 100%;
+  padding: 10px 12px 12px;
+}
+
+.subscription-history-heading {
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+}
+
+.subscription-history-heading details {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.subscription-history-heading details > summary {
+  min-height: 24px;
+  margin-bottom: 8px;
+  padding-right: 96px;
+}
+
+.subscription-history-heading .subscription-history-list {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+}
+
+.subscription-history-heading .history-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
+@media(max-width:700px) {
+  .subscription-history-heading {
+    padding-right: 0;
+  }
+}
