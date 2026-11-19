@@ -4,7 +4,7 @@
   <p>A Windows desktop utility for Cloudflare edge IP selection, 3X-UI node composition, and subscription generation.</p>
   <p><strong>English</strong> · <a href="README.zh-CN.md">中文</a></p>
   <p>
-    <img alt="Version" src="https://img.shields.io/badge/version-0.1.4-1688f0">
+    <img alt="Version" src="https://img.shields.io/badge/version-0.1.5-1688f0">
     <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20x64-0078d4">
     <img alt="Protocol" src="https://img.shields.io/badge/protocol-Rust%20%2B%20Tauri-22a06b">
     <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-22a06b">
@@ -15,7 +15,7 @@
 
 ## Download
 
-[Download LinkForge 0.1.4 for Windows x64](https://github.com/Imoot-TT/LinkForge/releases/tag/v0.1.4)
+[Download LinkForge 0.1.5 for Windows x64](https://github.com/Imoot-TT/LinkForge/releases/tag/v0.1.5)
 
 ## Features
 

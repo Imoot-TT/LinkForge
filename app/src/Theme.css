@@ -669,6 +669,27 @@ main {
   margin: 0;
 }
 
+/* Keep the advanced panel in the same mini density as the primary controls.
+   These selectors need their own font and height because the base rules do
+   not cover .advanced-url and .numbers inputs. */
+.advanced-url input,
+.numbers input {
+  box-sizing: border-box;
+  height: 30px;
+  min-height: 30px;
+  padding: 5px 8px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.advanced-url input::placeholder {
+  font-size: 11px;
+}
+
+.numbers label {
+  gap: 3px;
+}
+
 @media (max-width: 1100px) {
   .numbers {
     grid-template-columns: repeat(4, minmax(0, 1fr));
