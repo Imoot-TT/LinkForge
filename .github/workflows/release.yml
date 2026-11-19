@@ -61,7 +61,7 @@ jobs:
       - name: Publish GitHub Release
         shell: pwsh
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.LINKFORGE_RELEASE_TOKEN }}
         run: |
           $version = (Get-Content app/package.json -Raw | ConvertFrom-Json).version
           $notes = "docs/releases/$version.md"
