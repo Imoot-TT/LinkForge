@@ -1,0 +1,28 @@
+# Node / Vite
+app/node_modules/
+app/dist/
+app/.vite/
+npm-debug.log*
+
+# Rust / Tauri build output
+target/
+app/src-tauri/target/
+app/src-tauri/gen/
+
+# Local caches and reports
+.idea/
+.vscode/
+*.log
+*.tmp
+*.bak
+
+# Local runtime data / diagnostics
+*.db
+*.sqlite
+*.sqlite3
+*.diagnostics.json
+
+# OS files
+Thumbs.db
+Desktop.ini
+

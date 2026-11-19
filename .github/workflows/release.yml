@@ -1,0 +1,80 @@
+name: Build and publish LinkForge
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing LinkForge release tag to receive the Windows installers
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  windows-installer:
+    runs-on: windows-latest
+    env:
+      RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+      CARGO_TARGET_DIR: app/src-tauri/target
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install dependencies
+        working-directory: app
+        run: npm ci
+
+      - name: Verify source
+        working-directory: app
+        run: npm run build
+
+      - name: Build Windows installers
+        working-directory: app
+        run: npm run tauri -- build
+
+      - name: Verify release metadata
+        shell: pwsh
+        run: |
+          $version = (Get-Content app/package.json -Raw | ConvertFrom-Json).version
+          if ($env:RELEASE_TAG -ne "v$version") { throw "Release tag $env:RELEASE_TAG does not match package version $version" }
+          $notes = "docs/releases/$version.md"
+          if (-not (Test-Path -LiteralPath $notes)) { throw "Missing release notes: $notes" }
+          $assets = @(
+            "app/src-tauri/target/release/bundle/nsis/LinkForge_${version}_x64-setup.exe",
+            "app/src-tauri/target/release/bundle/msi/LinkForge_${version}_x64_en-US.msi"
+          )
+          foreach ($asset in $assets) { if (-not (Test-Path -LiteralPath $asset)) { throw "Missing release asset: $asset" } }
+
+      - name: Publish GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $version = (Get-Content app/package.json -Raw | ConvertFrom-Json).version
+          $notes = "docs/releases/$version.md"
+          $assets = @(
+            "app/src-tauri/target/release/bundle/nsis/LinkForge_${version}_x64-setup.exe",
+            "app/src-tauri/target/release/bundle/msi/LinkForge_${version}_x64_en-US.msi"
+          )
+          gh release view $env:RELEASE_TAG *> $null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $env:RELEASE_TAG --target main --title "LinkForge $version" --notes-file $notes
+            if ($LASTEXITCODE -ne 0) { throw "Release creation failed" }
+          }
+          gh release edit $env:RELEASE_TAG --title "LinkForge $version" --notes-file $notes --latest
+          gh release upload $env:RELEASE_TAG @assets --clobber
+
