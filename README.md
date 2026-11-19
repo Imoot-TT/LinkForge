@@ -7,6 +7,7 @@
     <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-1688f0">
     <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20x64-0078d4">
     <img alt="Protocol" src="https://img.shields.io/badge/protocol-Rust%20%2B%20Tauri-22a06b">
+    <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-22a06b">
   </p>
 </div>
 
@@ -49,3 +50,7 @@ npm run tauri -- build
 ## Documentation
 
 See [`docs/README.md`](docs/README.md) for the product, architecture, testing, and release documentation.
+
+## License
+
+LinkForge is licensed under the [GNU General Public License v3.0](LICENSE). If you distribute a binary build, provide users with access to the corresponding source code under the same license.

@@ -7,6 +7,7 @@
     <img alt="版本" src="https://img.shields.io/badge/version-0.1.0-1688f0">
     <img alt="平台" src="https://img.shields.io/badge/platform-Windows%20x64-0078d4">
     <img alt="技术栈" src="https://img.shields.io/badge/protocol-Rust%20%2B%20Tauri-22a06b">
+    <img alt="许可证" src="https://img.shields.io/badge/license-GPL--3.0-22a06b">
   </p>
 </div>
 
@@ -49,3 +50,7 @@ npm run tauri -- build
 ## 文档
 
 完整产品、架构、测试和发布审计文档见 [`docs/README.md`](docs/README.md)。
+
+## 许可证
+
+LinkForge 使用 [GNU GPLv3](LICENSE) 发布。分发二进制安装包时，应同时向用户提供对应源码，并继续使用相同许可证。
