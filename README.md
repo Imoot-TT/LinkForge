@@ -1,24 +1,32 @@
-# LinkForge
+<div align="center">
+  <img src="assets/linkforge-brand-icon.png" alt="LinkForge" width="144">
+  <h1>LinkForge</h1>
+  <p>A Windows desktop utility for Cloudflare edge IP selection, 3X-UI node composition, and subscription generation.</p>
+  <p><strong>English</strong> · <a href="README.zh-CN.md">中文</a></p>
+  <p>
+    <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-1688f0">
+    <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20x64-0078d4">
+    <img alt="Protocol" src="https://img.shields.io/badge/protocol-Rust%20%2B%20Tauri-22a06b">
+  </p>
+</div>
 
-LinkForge（链路工坊）是面向自建 Xray / 3X-UI 用户的 Windows 桌面工具：按 CFST 的默认模型测试本机到 Cloudflare 边缘 IP 的延迟、丢包和下载速度，再把优选 IP 与 3X-UI 节点组合并生成订阅。
+---
 
-## 下载
+## Download
 
-Windows 10/11 x64 安装包见 [Releases](https://github.com/Imoot-TT/LinkForge/releases)。
+[Download LinkForge 0.1.0 for Windows x64](https://github.com/Imoot-TT/LinkForge/releases/tag/v0.1.0)
 
-当前版本：`0.1.10`
+## Features
 
-## 主要能力
+- Extract IPv4 / IPv6 candidates from addresses and CIDR ranges.
+- Measure TCP 443 latency, packet loss, and CFST-compatible download speed.
+- Filter results, export CSV, and keep local test history.
+- Sign in to 3X-UI, save credentials securely, and read clients and linked nodes.
+- Combine VMess / VLESS / Trojan nodes with selected edge IPs.
+- Generate subscriptions locally or publish through a configurable goodip-compatible service.
+- Export Auto, Clash, V2rayN, Shadowrocket, and Surge formats.
 
-- IPv4 / IPv6 地址或 CIDR 候选抽取；
-- TCP 443 延迟、丢包和 CFST 默认下载测速；
-- 结果筛选、CSV 导出和本地测速历史；
-- 3X-UI 账号登录、凭据安全保存、客户端和关联节点读取；
-- VMess / VLESS / Trojan 节点与优选 IP 组合；
-- 本地订阅生成，以及可配置的兼容 goodip 服务发布；
-- 自动识别生成格式：Auto、Clash、V2rayN、Shadowrocket、Surge。
-
-## 本地开发
+## Run from Source
 
 ```powershell
 cd app
@@ -27,20 +35,17 @@ npm run build
 npm run tauri -- dev
 ```
 
-生成 Windows 安装包：
+Build Windows installers:
 
 ```powershell
 cd app
 npm run tauri -- build
 ```
 
-产物位于 `app/src-tauri/target/release/bundle/`。发布流程参考 [`VidoGo-Basic`](https://github.com/Imoot-TT/VidoGo-Basic) 的 tag + GitHub Release 模式。
+## Security
 
-## 安全说明
+3X-UI credentials are stored in the local Windows Credential Manager. Node links, panel tokens, and subscription URLs are sensitive and must not be committed or posted in public issues. Review the destination before using an online subscription publisher.
 
-3X-UI 登录凭据只保存在本机 Windows 凭据管理器中；节点链接、面板 Token 和订阅地址属于敏感信息，不应提交到仓库或公开 Issue。调用第三方在线订阅服务前，请确认其服务地址和隐私风险。
+## Documentation
 
-## 文档
-
-完整产品、架构、测试和发布审计文档见 [`docs/README.md`](docs/README.md)。
-
+See [`docs/README.md`](docs/README.md) for the product, architecture, testing, and release documentation.
