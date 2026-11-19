@@ -4,7 +4,7 @@
   <p>面向自建 Xray / 3X-UI 用户的 Cloudflare IP 优选与订阅生成桌面工具。</p>
   <p><a href="README.md">English</a> · <strong>中文</strong></p>
   <p>
-    <img alt="版本" src="https://img.shields.io/badge/version-0.1.3-1688f0">
+    <img alt="版本" src="https://img.shields.io/badge/version-0.1.4-1688f0">
     <img alt="平台" src="https://img.shields.io/badge/platform-Windows%20x64-0078d4">
     <img alt="技术栈" src="https://img.shields.io/badge/protocol-Rust%20%2B%20Tauri-22a06b">
     <img alt="许可证" src="https://img.shields.io/badge/license-GPL--3.0-22a06b">
@@ -15,7 +15,7 @@
 
 ## 下载
 
-[下载 LinkForge 0.1.3 Windows x64 安装包](https://github.com/Imoot-TT/LinkForge/releases/tag/v0.1.3)
+[下载 LinkForge 0.1.4 Windows x64 安装包](https://github.com/Imoot-TT/LinkForge/releases/tag/v0.1.4)
 
 ## 主要功能
 
