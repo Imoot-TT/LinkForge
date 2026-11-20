@@ -630,6 +630,59 @@ main {
   }
 }
 
+/* Keep the mini controls quiet: focus should be visible without a heavy halo. */
+.main-field input:focus,
+.settings input:focus,
+.compose input:focus,
+.urls input:focus,
+.quick-row label input:focus,
+.numbers input:focus,
+.compose textarea:focus,
+.output textarea:focus,
+.advanced textarea:focus,
+.result-actions input:focus,
+.panel-fetch input:focus,
+select:focus,
+textarea:focus {
+  border-color: #858bb3;
+  box-shadow: none;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+button:focus-visible,
+summary:focus-visible {
+  outline: 1px solid #858bb3;
+  outline-offset: 1px;
+  box-shadow: none;
+}
+
+.logo {
+  width: 180px;
+}
+
+.secret-input button.secret-toggle {
+  display: grid;
+  width: 30px;
+  min-width: 30px;
+  place-items: center;
+  padding: 0;
+}
+
+.secret-toggle svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* Advanced speed controls: reserve enough width for 9999 and keep every
    numeric field in a balanced grid instead of orphaning the last field. */
 .quick-row > label {
