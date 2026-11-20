@@ -683,6 +683,49 @@ summary:focus-visible {
   stroke-linejoin: round;
 }
 
+/* Use simple text links for the primary navigation. */
+.topbar nav {
+  height: 100%;
+  align-items: stretch;
+  gap: 18px;
+}
+
+.topbar nav button,
+.topbar nav button:hover,
+.topbar nav button.on {
+  position: relative;
+  padding: 0 2px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.topbar nav button:hover {
+  color: var(--ink);
+}
+
+.topbar nav button.on {
+  color: var(--accent);
+}
+
+.topbar nav button.on::after {
+  content: "";
+  position: absolute;
+  right: 1px;
+  bottom: 0;
+  left: 1px;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--accent);
+}
+
+/* WebView2 adds its own password reveal button. Keep only our compact toggle. */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 /* Advanced speed controls: reserve enough width for 9999 and keep every
    numeric field in a balanced grid instead of orphaning the last field. */
 .quick-row > label {
