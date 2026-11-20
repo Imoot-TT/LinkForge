@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/linkforge-brand-icon.png" alt="LinkForge" width="144">
+  <img src="assets/linkforge-icon.png" alt="LinkForge" width="144">
   <h1>LinkForge</h1>
   <p>A Windows desktop utility for Cloudflare edge IP selection, 3X-UI node composition, and subscription generation.</p>
   <p><strong>English</strong> · <a href="README.zh-CN.md">中文</a></p>

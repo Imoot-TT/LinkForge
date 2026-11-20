@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/linkforge-brand-icon.png" alt="LinkForge" width="144">
+  <img src="assets/linkforge-icon.png" alt="LinkForge" width="144">
   <h1>LinkForge</h1>
   <p>面向自建 Xray / 3X-UI 用户的 Cloudflare IP 优选与订阅生成桌面工具。</p>
   <p><a href="README.md">English</a> · <strong>中文</strong></p>
